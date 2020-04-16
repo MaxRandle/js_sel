@@ -1,0 +1,9 @@
+{
+  "retryLimit": {
+    "init": 3,
+    "transaction": 3
+  },
+  "credentials": {
+    "dummy": { "username": "DUMMY_USERNAME", "password": "DUMMY_PASSWORD" }
+  }
+}
