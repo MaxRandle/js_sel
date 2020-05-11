@@ -15,7 +15,7 @@ const tempoBox = async () => {
     const [usernameField, passwordField, signInButton] = await Promise.all([
       chromeTempo.selectElement("//*[@id='loginName']"),
       chromeTempo.selectElement("//*[@id='loginPwd']"),
-      chromeTempo.selectElement("//*[@id='loginButton']")
+      chromeTempo.selectElement("//*[@id='loginButton']"),
     ]);
     await Promise.all([usernameField.sendKeys(tempoboxUsername), passwordField.sendKeys(tempoboxPassword)]);
     await signInButton.click();
@@ -26,19 +26,22 @@ const tempoBox = async () => {
     );
     folderLink.click();
 
-    // download dummy file
-    const fileName = "test.txt";
-    // const allFilesDownloadLinksArray = await chromeTempo.selectElement(
-    //   `//*/div[contains(@id, 'browseFile')]/*//a[@class='objectDownload']`
+    const folder2Link = await chromeTempo.selectElement("//*/a[@title='Open Remediation data fortnightly']");
+    folder2Link.click();
+
+    // // download dummy file
+    // const fileName = "test.txt";
+    // // const allFilesDownloadLinksArray = await chromeTempo.selectElement(
+    // //   `//*/div[contains(@id, 'browseFile')]/*//a[@class='objectDownload']`
+    // // );
+    // const downloadLink = await chromeTempo.selectElement(
+    //   `//*/div[contains(@id, 'browseFile')]//*/a[contains(@title, '${fileName}')]`
     // );
-    const downloadLink = await chromeTempo.selectElement(
-      `//*/div[contains(@id, 'browseFile')]//*/a[contains(@title, '${fileName}')]`
-    );
-    const checkBox = await chromeTempo.selectElement(
-      `//*/div[contains(@id, 'browseFile')]//*/a[contains(@title, '${fileName}')]`
-    );
-    // await downloadLink.click();
-    console.log(downloadLink);
+    // const checkBox = await chromeTempo.selectElement(
+    //   `//*/div[contains(@id, 'browseFile')]//*/a[contains(@title, '${fileName}')]`
+    // );
+    // // await downloadLink.click();
+    // console.log(downloadLink);
 
     // quit Tempobox
     // chromeTempo.quit();

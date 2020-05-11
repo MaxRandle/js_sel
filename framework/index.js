@@ -5,6 +5,7 @@ const { initConfig, initApplications } = require("./Initialisation");
 
 const main = async () => {
   try {
+    let firstRun = true;
     const config = await initConfig();
     const applications = await initApplications();
   } catch (error) {

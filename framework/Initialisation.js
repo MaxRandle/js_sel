@@ -8,12 +8,24 @@ const initConfig = async () => {
     console.log(error);
   }
 };
-
-const initApplications = async config => {
+/**
+ *
+ * @param {object} config
+ * @return {object<driver>}
+ */
+const initApplications = async (config) => {
   try {
     // initialise applications here
     const applications = {};
-    return { ...applications };
+    return applications;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const closeAllApplications = async (applications) => {
+  try {
+    Object.values(applications).forEach((application) => application.quit());
   } catch (error) {
     console.log(error);
   }
@@ -21,5 +33,5 @@ const initApplications = async config => {
 
 module.exports = {
   initConfig,
-  initApplications
+  initApplications,
 };
